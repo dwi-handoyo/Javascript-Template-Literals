@@ -1,0 +1,52 @@
+// Examples of Tag Template LIterals with forEach Looping
+
+<div id="slideContainer"></div>
+<div id="output"></div>
+
+<script>
+
+var slides = ["slide 1", "slide 2", "slide 3", "slide 4", "slide 5"] 
+
+var str = '<ul>' 
+
+slides.forEach(function(slide) { str += '<li>'+ slide + '</li>'; }); 
+
+str += '</ul>'; 
+
+document.getElementById("slideContainer").innerHTML = str;
+
+let angka = [1,2,3,4,5,3,4,5,6,7,8];
+
+let hasil = angka.filter(group);
+
+function group(a){
+  return a >= 4; 
+}
+
+let tulis = '<ul>';
+hasil.forEach(daftar);
+
+tulis += '</ul>';
+
+function daftar(bilangan){
+ tulis += '<li>' + bilangan + '</li>';
+}
+
+document.getElementById("output").innerHTML = tulis;
+
+// HTML Output:
+// * slide 1
+// * slide 2
+// * slide 3
+// * slide 4
+// * slide 5
+
+// * 4
+// * 5
+// * 4
+// * 5
+// * 6
+// * 7
+// * 8  
+  
+</script>
