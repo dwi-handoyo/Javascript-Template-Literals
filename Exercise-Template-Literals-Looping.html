@@ -1,0 +1,35 @@
+
+// Looping
+
+<p>Template Literals - Looping (Exercise)</p>
+<p id="demo"></p>
+
+<script>
+
+const mhs = [
+  {
+    nama: 'Baladewa',
+    email: 'baladewa@xmail.com'
+  },
+  {
+    nama: 'Setyaki',
+    email: 'setyaki@xmail.com'
+  },
+  {
+    nama: 'Bimasakti',
+    email: 'bimasakti@xmail.com' 
+  }
+];
+
+const el = `<div class="mhs">
+  ${mhs.map( m => `<ul>
+    <li>Nama: ${m.nama}</li>
+    <li>email: ${m.email}</li>
+  </ul>`).join('')}
+</div>`;
+
+document.getElementById("demo").innerHTML = el;
+//document.body.innerHTML = el1;
+console.log(el);
+
+</script>
