@@ -1,0 +1,110 @@
+// Tag Template Laterals
+
+<p>Tag Template Literals</p>
+<p id="demo"></p>
+
+const nama = 'John Meyer';
+const umur = 25;
+
+function coba(strings) {
+  return strings;
+} 
+
+const str = coba `Halo, nama saya ${nama}, saya ${umur} tahun.`;
+console.log(str);
+
+// Output:
+// (3) ['Halo, nama saya ', ', saya ', ' tahun.', raw: Array(3)]
+// 0: "Halo, nama saya "
+// 1: ", saya "
+// 2: " tahun."
+// length: 3
+// raw: (3) ['Halo, nama saya ', ', saya ', ' tahun.']
+// [[Prototype]]: Array(0)
+
+const name = 'Jack Blake';
+const age = 35;
+
+function coba1(strings, name, age, email) {
+  return email;
+}
+
+const str1 = coba1 `Halo, nama Saya ${name}, saya ${age} tahun.`;
+console.log(str1);
+
+// output:
+// undefined
+
+const name1 = 'Ben Starlight';
+const age1 = 32;
+email = 'starlight@xmail.com';
+
+function coba2(strings, name1, age1, email) {
+  return email;
+}
+
+const str2 = coba2 `Halo, nama Saya ${name1}, saya ${age1} tahun, emailnya ${email}.`;
+console.log(str2);
+
+// output:
+// starlight@xmail.com
+
+function coba3(strings, ...values){
+  return values;
+}
+
+const str3 = coba3`Halo, nama Saya ${name1}, saya ${age1}, emailnya adalah ${email}.`;
+console.log(str3);
+
+// output:
+// (3) ["Ben Starlight", 32, "starlight@xmail.com"]
+// 0: "Ben Starlight"
+// 1: 32
+// 2: "starlight@xmail.com"
+// length: 3
+// [[Prototype]]: Array(0)
+
+const name2 = 'Sam Johnson';
+const age2 = 40;
+
+function coba4(strings, ...values){ // values bisa diganti dengan apa pun. triple dot (...) di sini merupakan rest operator 
+  let result = '';
+  strings.forEach((str, i) => {
+    result += `${str}${values[i] || ''}`
+  });
+   return result;
+}
+
+const str4 = coba4`Halo, nama saya ${name1}, saya ${age1} tahun, emailnya ${email}.`;
+console.log(str4);
+
+// output:
+// Halo, nama saya Ben Starlight, saya 32 tahun, emailnya starlight@xmail.com.
+
+function coba5(strings, ...args){
+  return strings.reduce((result, str, i) => `${result}${str}${args[i] || ''}`, '');
+}
+
+const str5 = coba5`Halo, nama saya ${name1}, saya ${age1} tahun, emailnya ${email}.`;
+console.log(str5);
+
+// output:
+// Halo, nama saya Ben Starlight, saya 32 tahun, emailnya starlight@xmail.com.
+
+// Highlight function
+
+function highlight(strings, ...args1){
+  return strings.reduce((result, str, i) => `${result}${str}<span class="hl">${args1[i] || ''}</span>`, '');
+}
+
+const str6 = highlight `Halo, nama saya ${name1}, saya ${age1} tahun, emailnya ${email}.`;
+console.log(str6);
+
+document.getElementById("demo").innerHTML = str6;
+
+// HTML output:
+// Halo, nama saya Ben Starlight, saya 32 tahun, emailnya starlight@xmail.com.
+
+
+
+
