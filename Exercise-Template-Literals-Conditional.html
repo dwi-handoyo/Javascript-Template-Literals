@@ -1,0 +1,46 @@
+<p>Template Literals - Conditional (Exercise)</p>
+<p id="demo"></p>
+
+// Conditionals
+// Ternary conditional (with "?" sign)
+
+const lagu = [
+ {
+  judul: 'Kau Adalah',
+  penyanyi: 'Isyana Saraswati',
+  feat: 'Rayi Putra'
+ },
+ {
+  judul: 'Tetap Dalam Jiwa',
+  penyanyi: 'Isyana Saraswati'
+ },
+ {
+  judul: 'Jalan Bersama',
+  penyanyi: 'Jacko',
+  feat: 'Thor'
+ } 
+ 
+];
+
+const el = `<div class="lagu">
+  ${lagu.map( l => `<ul>
+    <li>Judul: ${l.judul}</li>
+    <li>Penyanyi: ${l.penyanyi} ${l.feat ? `(feat. ${l.feat})` : ''}</li>
+  </ul>`).join('')}
+</div>`;
+
+console.log(el);
+
+document.getElementById("demo").innerHTML = el;
+
+// result:
+// Tag Template - Conditional (Exercise)
+
+// * Judul: Kau Adalah
+// * Penyanyi: Isyana Saraswati (feat. Rayi Putra)
+
+// * Judul: Tetap Dalam Jiwa
+// * Penyanyi: Isyana Saraswati
+
+// * Judul: Jalan Bersama
+// * Penyanyi: Jacko (feat. Thor)
